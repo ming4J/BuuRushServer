@@ -62,17 +62,17 @@ public class DbUtils {
 
         if (conn != null) {
             try {
-                String connstr = "SELECT COUNT(question_id) FROM question_info;";
+                String connstr = "SELECT MAX(question_info.guanka_flag) AS guanka FROM question_info";
                 ps = conn.prepareStatement(connstr);
                 rs = ps.executeQuery();
                 if (rs.next()) {
-                    count = rs.getInt("COUNT(question_id)");
+                    count = rs.getInt("guanka");
                 }
 
-                System.out.println(count + "ddddddddd");
+               // System.out.println(count + "ddddddddd");
             } catch (Exception e) {
                 // TODO: handle exception
-              //  exist = false;
+
                 e.printStackTrace();
             } finally {
                 try {

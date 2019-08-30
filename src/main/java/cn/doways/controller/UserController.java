@@ -99,7 +99,7 @@ public class UserController {
         if(object.has("wx_openid")){
             //  System.out.println("stu_name:"+object.getString("stu_name"));
             int count =   DbUtils.getguankatotal(object.getString("wx_openid"));
-                count = (int) ((int)count/10.0);
+
 
                 mav.addObject("result","ok");
                 mav.addObject("count",count);
